@@ -70,7 +70,7 @@ public class LoginFormController {
                     if ("Admin".equalsIgnoreCase(role)) {
                         navigateToDashboard("/view/adminMainForm.fxml"); // navigate to the admin dashboard
                     } else if ("Coordinator".equalsIgnoreCase(role)) {
-                        navigateToDashboard("/view/adminMainForm.fxml"); // navigate to the coordinator dashboard
+                        navigateToDashboard("/view/coordinatorMainForm.fxml"); // navigate to the coordinator dashboard
                     } else {
                         new Alert(Alert.AlertType.ERROR, "Unknown role: " + role).show();
                     }

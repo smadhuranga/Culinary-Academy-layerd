@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.culinaryacademy.controller.EnrolmentFormController">
+    <children>
+        <Text fill="#3c30e1" fontSmoothingType="LCD" layoutX="660.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enrolments Management" wrappingWidth="300.0">
+            <font>
+                <Font name="Arial Bold" size="24.0" />
+            </font>
+        </Text>
+        <!-- Pane for student details -->
+        <Pane layoutX="50.0" layoutY="90.0" prefHeight="165.0" prefWidth="910.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15;">
+            <children>
+
+                <JFXTextField fx:id="txtEnrolmentId" disable="true" labelFloat="true" layoutX="35.0" layoutY="35.0" onKeyReleased="#txtEnrolmentIdOnKeyReleased" prefHeight="36.0" prefWidth="200.0" promptText="Enrolment ID" styleClass="jfx-text-field" stylesheets="@../assets/css/textField.css">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </JFXTextField>
+            <JFXComboBox fx:id="cmbStudentId" disable="true" labelFloat="true" layoutX="355.0" layoutY="35.0" onAction="#cmbStudentIdOnAction" prefHeight="36.0" prefWidth="200.0" promptText="Student ID" />
+            <JFXComboBox fx:id="cmbCourseId" disable="true" labelFloat="true" layoutX="645.0" layoutY="35.0" onAction="#cmbCourseIdOnAction" prefHeight="36.0" prefWidth="200.0" promptText="Course ID" />
+            <Text fx:id="txtStudentName" fill="#4d4d4d" focusTraversable="true" layoutX="355.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Name" textAlignment="CENTER" wrappingWidth="200.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtCourseName" fill="#4d4d4d" focusTraversable="true" layoutX="645.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Name" textAlignment="CENTER" wrappingWidth="200.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <JFXTextField fx:id="txtEnrolledDate" disable="true" labelFloat="true" layoutX="35.0" layoutY="107.0" onKeyReleased="#txtEnrolledDateOnKeyReleased" prefHeight="36.0" prefWidth="200.0" promptText="Enrolled Date" styleClass="jfx-text-field" stylesheets="@../assets/css/textField.css">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            </children>
+            <effect>
+                <DropShadow blurType="GAUSSIAN" offsetX="-1.0" offsetY="2.0" spread="0.12">
+                    <color>
+                        <Color red="0.6666666865348816" green="0.6666666865348816" blue="0.6666666865348816" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Pane>
+
+        <!-- Table for displaying students -->
+        <TableView fx:id="tblEnrolment" layoutX="50.0" layoutY="308.0" prefHeight="335.0" prefWidth="910.0" stylesheets="@../assets/css/table.css">
+            <columns>
+                <TableColumn fx:id="colEnrolmentId" prefWidth="100.0" text="Enrolment ID" />
+                <TableColumn fx:id="colStudentId" prefWidth="150.0" text="Student ID" />
+                <TableColumn fx:id="colStudentName" prefWidth="135.2" text="Student Name" />
+                <TableColumn fx:id="colCourseId" prefWidth="126.4" text="Course ID" />
+                <TableColumn fx:id="colCourseName" prefWidth="223.2" text="Course Name" />
+                <TableColumn fx:id="colEnrolledDate" prefWidth="174.39999999999998" text="Enrolled Date" />
+            </columns>
+        </TableView>
+        <HBox layoutX="388.0" layoutY="30.0" spacing="5.0" styleClass="hBox" stylesheets="@../assets/css/search.css">
+            <children>
+                <JFXTextField fx:id="txtSearch" onAction="#txtSearchOnAction" prefHeight="25.0" promptText="Enter Search" />
+                <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" onAction="#txtSearchOnAction" ripplerFill="GREY" styleClass="search-button" stylesheets="@../assets/css/search.css">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/images/search.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+            </children>
+        </HBox>
+      <HBox layoutX="568.0" layoutY="261.0" prefHeight="41.0" prefWidth="392.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5;">
+         <children>
+                <JFXButton alignment="BASELINE_LEFT" disable="true" graphicTextGap="5.0" onAction="#btnSaveOnAction" prefWidth="100.0" ripplerFill="#0882e1" styleClass="crud-button" stylesheets="@../assets/css/button.css" text="Save">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/images/add_student.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+                <JFXButton alignment="BASELINE_LEFT" disable="true" onAction="#btnDeleteOnAction" prefWidth="100.0" ripplerFill="#0882e1" styleClass="crud-button" stylesheets="@../assets/css/button.css" text="Delete">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/images/delete-student.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+                <JFXButton alignment="BASELINE_LEFT" disable="true" onAction="#btnUpdateOnAction" prefWidth="100.0" ripplerFill="#0882e1" styleClass="crud-button" stylesheets="@../assets/css/button.css" text="Update">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/images/update_student.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+                <JFXButton alignment="BASELINE_LEFT" onAction="#btnClearOnAction" prefWidth="100.0" ripplerFill="#0882e1" styleClass="crud-button" stylesheets="@../assets/css/button.css" text="Clear">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/images/clear.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>

@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class CoordinatorMainFormController {
 
@@ -61,35 +62,80 @@ public class CoordinatorMainFormController {
     }
 
     @FXML
-    void btnStudentOnAction(ActionEvent event) {
+    void btnStudentOnAction(ActionEvent event) throws IOException {
+        setButtonActive(btnStudent);
+
+        URL resource = getClass().getResource("/view/studentsFormCoor.fxml");
+        assert resource != null;
+        Parent load = FXMLLoader.load(resource);
+        subPane.getChildren().clear();
+        subPane.getChildren().add(load);
+
+        pageTransition(load);
 
     }
 
-    public void btnEnrolmentOnAction(ActionEvent actionEvent) {
+    public void btnEnrolmentOnAction(ActionEvent actionEvent) throws IOException{
+        setButtonActive(btnStudent);
 
+        URL resource = getClass().getResource("/view/enrolmentFormCoor.fxml");
+        assert resource != null;
+        Parent load = FXMLLoader.load(resource);
+        subPane.getChildren().clear();
+        subPane.getChildren().add(load);
+
+        pageTransition(load);
     }
 
-    public void btnCourseOnAction(ActionEvent actionEvent) {
+    public void btnCourseOnAction(ActionEvent actionEvent) throws IOException {
+        setButtonActive(btnCourse);
 
+        URL resource = getClass().getResource("/view/coursesFormCoor.fxml");
+        assert resource != null;
+        Parent load = FXMLLoader.load(resource);
+        subPane.getChildren().clear();
+        subPane.getChildren().add(load);
+
+        pageTransition(load);
     }
 
     @FXML
-    void btnPaymentOnAction(ActionEvent event) {
+    void btnPaymentOnAction(ActionEvent event) throws IOException {
+        setButtonActive(btnPayment);
 
+        URL resource = getClass().getResource("/view/paymentsFormCoor.fxml");
+        assert resource != null;
+        Parent load = FXMLLoader.load(resource);
+        subPane.getChildren().clear();
+        subPane.getChildren().add(load);
+
+        pageTransition(load);
     }
 
     @FXML
-    void btnSettingsOnAction(ActionEvent event) {
+    void btnSettingsOnAction(ActionEvent event) throws IOException {
+        setButtonActive(btnSettings);
 
+        URL resource = getClass().getResource("/view/settingsForm.fxml");
+        assert resource != null;
+        Parent load = FXMLLoader.load(resource);
+        subPane.getChildren().clear();
+        subPane.getChildren().add(load);
+
+        pageTransition(load);
     }
 
     @FXML
     void btnLogOutOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/credentialForm.fxml"));
-        Stage stage = (Stage) rootPane.getScene().getWindow();
-        stage.setScene(new Scene(anchorPane));
-        stage.setTitle("Login Form");
-        stage.centerOnScreen();
+        setButtonActive(btnSettings);
+
+        URL resource = getClass().getResource("/view/loginForm.fxml");
+        assert resource != null;
+        Parent load = FXMLLoader.load(resource);
+        subPane.getChildren().clear();
+        subPane.getChildren().add(load);
+
+        pageTransition(load);
     }
 
     // ---------------------------- Pane Transition ----------------------------

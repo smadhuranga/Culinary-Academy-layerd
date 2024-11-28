@@ -77,15 +77,20 @@ public class EnrolmentDAOImpl implements EnrolmentDAO {
 
     @Override
     public List<Enrolment> getAll() throws Exception {
-        ArrayList<Enrolment> enrolments = new ArrayList<>();
-        try(Session session = SessionFactoryConfig.getInstance().getSession()){
-            enrolments = (ArrayList<Enrolment>) session.createQuery("FROM Enrolment").list();
-        }catch (Exception e){
+        List<Enrolment> enrolments = new ArrayList<>();
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            // Using a JOIN FETCH to load related entities
+            enrolments = session.createQuery(
+                    "SELECT e FROM Enrolment e " +
+                            "JOIN FETCH e.student s " +
+                            "JOIN FETCH e.course c " +
+                            "ORDER BY e.enrolmentId", Enrolment.class
+            ).list();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return enrolments;
     }
-
     @Override
     public List<String> getIds() throws Exception {
         try (Session session = SessionFactoryConfig.getInstance().getSession()) {
