@@ -49,10 +49,17 @@ public class EnrolmentBOImpl implements EnrolmentBO {
     @Override
     public EnrolmentDTO searchByEnrolmentId(String enrolmentId) throws Exception {
         Enrolment e = enrolmentDAO.searchById(enrolmentId);
+
+        if (e == null) {
+            return null;
+        }
+
         return new EnrolmentDTO(
                 e.getEnrolmentId(),
-                e.getStudentId(),
-                e.getCourseId(),
+                e.getStudent().getStudentId(),       // Assuming a getStudent() method
+                e.getStudent().getName(),           // Assuming a getName() method
+                e.getCourse().getCourseId(),        // Assuming a getCourse() method
+                e.getCourse().getCourseName(),            // Assuming a getName() method
                 e.getEnrolledDate()
         );
     }
@@ -71,9 +78,9 @@ public class EnrolmentBOImpl implements EnrolmentBO {
                 enrolmentsList.add(new EnrolmentDTO(
                         e.getEnrolmentId(),
                         e.getStudent().getStudentId(),
-                        e.getStudent().getName(),  // Fetching student name
+                        e.getStudent().getName(),
                         e.getCourse().getCourseId(),
-                        e.getCourse().getCourseName(),  // Fetching course name
+                        e.getCourse().getCourseName(),
                         e.getEnrolledDate()
                 ));
             }

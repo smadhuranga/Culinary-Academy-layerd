@@ -4,6 +4,7 @@ import lk.ijse.culinaryacademy.config.SessionFactoryConfig;
 import lk.ijse.culinaryacademy.dao.custom.EnrolmentDAO;
 import lk.ijse.culinaryacademy.entity.Enrolment;
 import lk.ijse.culinaryacademy.entity.Student;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -66,10 +67,16 @@ public class EnrolmentDAOImpl implements EnrolmentDAO {
 
     @Override
     public Enrolment searchById(String enrolmentId) throws Exception {
-        try(Session session = SessionFactoryConfig.getInstance().getSession()){
-            System.out.println(session.get(Student.class, enrolmentId));
-            return session.get(Enrolment.class, enrolmentId);
-        }catch (Exception e){
+        try (Session session = SessionFactoryConfig.getInstance().getSession()) {
+            Enrolment enrolment = session.get(Enrolment.class, enrolmentId);
+
+            if (enrolment != null) {
+                // Initialize the lazy-loaded properties for Student and Course
+                Hibernate.initialize(enrolment.getStudent());
+                Hibernate.initialize(enrolment.getCourse());
+            }
+            return enrolment;
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
