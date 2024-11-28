@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="adminRegisterPane" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.culinaryacademy.controller.RegisterFormController">
+    <children>
+        <Text fill="#442fb5" fontSmoothingType="LCD" layoutX="115.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Register">
+            <font>
+                <Font name="SansSerif Bold" size="23.0" />
+            </font>
+        </Text>
+      <Group layoutX="230.0" layoutY="55.0" />
+      <VBox layoutX="50.0" layoutY="202.0" prefWidth="300.0" spacing="20.0">
+         <children>
+            <MFXTextField fx:id="txtUsername" floatMode="BORDER" floatingText="Username" layoutX="10.0" layoutY="10.0" onAction="#txUsernameOnAction" onKeyReleased="#txtUsernameOnKeyReleased" prefWidth="300.0" stylesheets="@../assets/css/validation.css" />
+            <MFXTextField fx:id="txtName" floatMode="BORDER" floatingText="Name" onAction="#txtNameOnAction" onKeyReleased="#txtNameOnKeyReleased" prefWidth="300.0" stylesheets="@../assets/css/validation.css" />
+            <MFXTextField fx:id="txtEmail" floatMode="BORDER" floatingText="Email" onAction="#txtEmailOnAction" onKeyReleased="#txtEmailOnKeyReleased" prefWidth="300.0" stylesheets="@../assets/css/validation.css" />
+            <MFXPasswordField fx:id="txtPassword" allowPaste="true" floatMode="BORDER" floatingText="Password" onAction="#txtPasswordOnAction" onKeyReleased="#txtPasswordOnKeyReleased" prefWidth="300.0" stylesheets="@../assets/css/validation.css" />
+            <MFXPasswordField fx:id="txtConfirmPassword" allowPaste="true" floatMode="BORDER" floatingText="Confirm Password" onAction="#txtConfirmPasswordOnAction" onKeyReleased="#txtConfirmPasswordOnKeyReleased" prefWidth="300.0" stylesheets="@../assets/css/validation.css" />
+         </children>
+      </VBox>
+      <JFXButton fx:id="btnSignUp" buttonType="RAISED" layoutX="50.0" layoutY="494.0" onAction="#btnSignUpOnAction" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: green; -fx-background-radius: 20;" text="Sign Up" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnCancel" buttonType="RAISED" layoutX="50.0" layoutY="540.0" onAction="#btnCancelOnAction" prefHeight="35.0" prefWidth="300.0" style="-fx-background-radius: 20; -fx-background-color: white;" text="Cancel">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Group layoutX="59.0" layoutY="110.0">
+         <children>
+            <Text fill="#e07709" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Culinary" wrappingWidth="154.029296875">
+               <font>
+                  <Font name="SansSerif Bold" size="35.0" />
+               </font>
+            </Text>
+            <Text fontSmoothingType="LCD" layoutX="154.0" layoutY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Academy">
+               <font>
+                  <Font name="SansSerif Bold" size="29.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+    </children>
+</AnchorPane>

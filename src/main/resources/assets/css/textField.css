@@ -1,0 +1,51 @@
+.floating-text-field {
+    -fx-padding: 12 0 8 0;
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-font-size: 16px;
+
+    /* Underline effect */
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: rgba(0, 0, 0, 0.2);
+
+    /* Smooth transition for border and text */
+    -fx-transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.floating-text-field:hover {
+    -fx-border-color: linear-gradient(to right, #00e1fd, #fc007a);
+}
+
+.floating-text-field:focused {
+    -fx-border-color: linear-gradient(to right, #ff2cdf, #0014ff);
+    -fx-border-width: 0 0 3 0;
+}
+
+.floating-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: rgba(0, 0, 0, 0.6);
+    -fx-opacity: 0.7;
+
+    /* Smooth transform and transition for label movement */
+    -fx-transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    -fx-translate-y: 0;
+}
+
+.floating-text-field:focused + .floating-label,
+.floating-text-field:default + .floating-label {
+    -fx-translate-y: -20;
+    -fx-opacity: 1;
+    -fx-font-size: 12px;
+    -fx-text-fill: linear-gradient(to right, #ff2cdf, #0014ff);
+}
+
+/* Additional hover and focus states */
+.floating-text-field:hover + .floating-label {
+    -fx-opacity: 0.9;
+    -fx-text-fill: rgba(0, 225, 253, 0.8);
+}
+
+.floating-text-field:focused + .floating-label {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}

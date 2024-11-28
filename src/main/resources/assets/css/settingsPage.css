@@ -1,0 +1,155 @@
+/* Modern Settings Page Styling */
+
+/* General Pane Styling with Glassmorphism Effect */
+.pane {
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-padding: 20;
+
+    /* Glassmorphism effect */
+    -fx-effect:
+            dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 5),
+            innershadow(gaussian, rgba(255, 255, 255, 0.5), 20, 0, 0, 0);
+
+    /* Smooth transition for hover effects */
+    -fx-transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.pane:hover {
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+    -fx-effect:
+            dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 15, 0, 0, 7),
+            innershadow(gaussian, rgba(255, 255, 255, 0.7), 25, 0, 0, 0);
+}
+
+/* TitledPane with Modern Gradient and Depth */
+.titledPane {
+    -fx-background-color: linear-gradient(to right, #f6f8f9 0%, #e5ebee 100%);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 3);
+}
+
+.titledPane .title {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+    -fx-padding: 12;
+
+    /* Hover effect for title */
+    -fx-transition: all 0.3s ease;
+}
+
+.titledPane .title:hover {
+    -fx-translate-x: 10;
+    -fx-text-fill: #3498db;
+}
+
+.titledPane > .title .arrow {
+    -fx-background-color: #34495e;
+    -fx-shape: "M 0 0 L 6 6 L 12 0 Z";
+    -fx-scale-shape: true;
+
+    /* Smooth arrow transition */
+    -fx-transition: all 0.3s ease;
+}
+
+.titledPane > .title:hover .arrow {
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+    -fx-rotate: 180;
+}
+
+.titledPane > .content {
+    -fx-background-color: rgba(255, 255, 255, 0.7);
+    -fx-padding: 15;
+    -fx-border-color: rgba(0, 0, 0, 0.05);
+    -fx-border-width: 1 0 0 0;
+}
+
+/* JFX TextField with Creative Focus Effect */
+.jfx-text-field, .jfx-password-field {
+    -fx-font-size: 15;
+    -fx-background-color: transparent;
+    -jfx-focus-color: linear-gradient(to right, #00e1fd, #fc007a);
+    -jfx-unfocus-color: rgba(0, 0, 0, 0.3);
+
+    /* Animated underline and label */
+    -fx-transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.jfx-text-field:focused, .jfx-password-field:focused {
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+/* JFX Buttons with Gradient and 3D Effect */
+.jfx-button {
+    -fx-font-size: 14;
+    -fx-padding: 12 25;
+    -fx-background-radius: 30;
+    -fx-text-fill: white;
+
+    /* Gradient background with depth */
+    -fx-background-color: linear-gradient(to right, #00e1fd, #fc007a);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 10, 0, 0, 4);
+
+    /* Smooth transition for interactions */
+    -fx-transition: all 0.3s ease-out;
+}
+
+.jfx-button:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-rotate: 2;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 15, 0, 0, 6);
+}
+
+.jfx-button:pressed {
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+    -fx-effect: none;
+}
+
+/* Specific Button Styles */
+.jfx-button.submit-password {
+    -fx-background-color: linear-gradient(to right, #ff5722, #f57c00);
+}
+
+.jfx-button.submit-email {
+    -fx-background-color: linear-gradient(to right, #2196f3, #1976d2);
+}
+
+/* VBox with Soft Background and Subtle Animations */
+.vbox {
+    -fx-background-color: rgba(249, 250, 251, 0.7);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 3);
+    -fx-transition: all 0.3s ease;
+}
+
+.vbox:hover {
+    -fx-background-color: rgba(249, 250, 251, 0.9);
+    -fx-scale-x: 1.01;
+    -fx-scale-y: 1.01;
+}
+
+/* Label Styling with Modern Typography */
+.label {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 15;
+    -fx-text-fill: #2c3e50;
+    -fx-transition: all 0.3s ease;
+}
+
+.label:hover {
+    -fx-text-fill: #3498db;
+    -fx-translate-x: 5;
+}

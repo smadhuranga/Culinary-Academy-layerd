@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.culinaryacademy.controller.UserFormController">
+    <children>
+        <Text fill="#3c30e1" fontSmoothingType="LCD" layoutX="735.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Users Management" wrappingWidth="225.0">
+            <font>
+                <Font name="Arial Bold" size="24.0" />
+            </font>
+        </Text>
+        <!-- Pane for student details -->
+        <Pane layoutX="50.0" layoutY="90.0" prefHeight="165.0" prefWidth="910.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15;">
+            <children>
+                <JFXTextField fx:id="txtUsername" labelFloat="true" layoutX="40.0" layoutY="35.0" onKeyReleased="#txtUsernameOnKeyReleased" prefHeight="36.0" prefWidth="200.0" promptText="Username">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </JFXTextField>
+
+                <JFXTextField fx:id="txtName" labelFloat="true" layoutX="355.0" layoutY="35.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="36.0" prefWidth="200.0" promptText="Name">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </JFXTextField>
+
+                <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="650.0" layoutY="35.0" onKeyReleased="#txtEmailOnKeyReleased" prefHeight="36.0" prefWidth="200.0" promptText="Email">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </JFXTextField>
+            <JFXComboBox fx:id="cmbRole" labelFloat="true" layoutX="40.0" layoutY="110.0" prefHeight="36.0" prefWidth="200.0" promptText="Role">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXComboBox>
+            <JFXPasswordField fx:id="txtPassword" layoutX="355.0" layoutY="110.0" onKeyReleased="#txtPasswordOnKeyReleased" prefHeight="36.0" prefWidth="200.0" promptText="Password" />
+            <JFXPasswordField fx:id="txtConfirmPassword" layoutX="650.0" layoutY="101.0" onKeyReleased="#txtConfirmPasswordOnKeyReleased" prefHeight="36.0" prefWidth="200.0" promptText="Confirm Password" />
+            </children>
+            <effect>
+                <DropShadow blurType="GAUSSIAN" offsetX="-1.0" offsetY="2.0" spread="0.12">
+                    <color>
+                        <Color red="0.6666666865348816" green="0.6666666865348816" blue="0.6666666865348816" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Pane>
+
+        <!-- Table for displaying students -->
+        <TableView fx:id="tblUser" layoutX="50.0" layoutY="307.0" prefHeight="335.0" prefWidth="910.0" stylesheets="@../assets/css/table.css">
+            <columns>
+                <TableColumn fx:id="colUsername" prefWidth="148.00000381469727" text="Username" />
+                <TableColumn fx:id="colName" prefWidth="256.8000030517578" text="Name" />
+                <TableColumn fx:id="colEmail" prefWidth="255.20001220703125" text="Email" />
+                <TableColumn fx:id="colRole" prefWidth="234.4000244140625" text="Role" />
+            </columns>
+        </TableView>
+      <HBox layoutX="560.0" layoutY="263.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-opaque-insets: 5;">
+         <children>
+                <JFXButton alignment="BASELINE_LEFT" graphicTextGap="5.0" onAction="#btnSaveOnAction" prefWidth="100.0" ripplerFill="#0882e1" styleClass="crud-button" stylesheets="@../assets/css/button.css" text="Save">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/images/add_student.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+                <JFXButton alignment="BASELINE_LEFT" onAction="#btnUpdateOnAction" prefWidth="100.0" ripplerFill="#0882e1" styleClass="crud-button" stylesheets="@../assets/css/button.css" text="Update">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/images/update_student.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+                <JFXButton alignment="BASELINE_LEFT" onAction="#btnDeleteOnAction" prefWidth="100.0" ripplerFill="#0882e1" styleClass="crud-button" stylesheets="@../assets/css/button.css" text="Delete">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/images/delete-student.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+                <JFXButton alignment="BASELINE_LEFT" onAction="#btnClearOnAction" prefWidth="100.0" ripplerFill="#0882e1" styleClass="crud-button" stylesheets="@../assets/css/button.css" text="Clear">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/images/clear.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </JFXButton>
+         </children>
+      </HBox>
+      <HBox layoutX="393.0" layoutY="30.0" spacing="5.0" styleClass="hBox" stylesheets="@../assets/css/search.css">
+         <children>
+            <JFXTextField fx:id="txtSearch" onAction="#txtSearchOnAction" prefHeight="25.0" promptText="Enter Search" />
+            <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" onAction="#txtSearchOnAction" ripplerFill="GREY" styleClass="search-button" stylesheets="@../assets/css/search.css">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/images/search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>

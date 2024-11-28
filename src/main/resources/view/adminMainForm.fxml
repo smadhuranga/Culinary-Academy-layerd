@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootPane" prefHeight="650.0" prefWidth="1200.0" style="-fx-background-color: #ecf0f1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.culinaryacademy.controller.AdminMainFormController">
+   <children>
+      <Pane prefHeight="650.0" prefWidth="200.0" style="-fx-background-radius: 0 20 20 0; -fx-background-color: white;">
+         <children>
+            <Group layoutX="35.0" layoutY="54.0" />
+            <VBox layoutX="-6.0" layoutY="123.0" spacing="25.0">
+               <children>
+                  <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="5.0" onAction="#btnHomeOnAction" prefHeight="52.0" prefWidth="180.0" ripplerFill="#0883e2" styleClass="dashboard-button" stylesheets="@../assets/css/button.css" text="Dashboard">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/images/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" offsetY="2.0" spread="0.1" />
+                     </effect>
+                  </JFXButton>
+                  <JFXButton fx:id="btnStudent" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="5.0" onAction="#btnStudentOnAction" prefHeight="52.0" prefWidth="180.0" ripplerFill="#0883e2" styleClass="dashboard-button" stylesheets="@../assets/css/button.css" text="Student">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/images/student.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" offsetX="-1.0" offsetY="2.0" spread="0.1" />
+                     </effect>
+                  </JFXButton>
+                  <JFXButton fx:id="btnEnrolment" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="5.0" layoutX="10.0" layoutY="97.0" onAction="#btnEnrolmentOnAction" prefHeight="52.0" prefWidth="180.0" ripplerFill="#0883e2" styleClass="dashboard-button" stylesheets="@../assets/css/button.css" text="Enrollment">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/images/enrolment.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" offsetX="-1.0" offsetY="2.0" spread="0.1" />
+                     </effect>
+                  </JFXButton>
+                  <JFXButton fx:id="btnCourse" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="5.0" onAction="#btnCourseOnAction" prefHeight="52.0" prefWidth="180.0" ripplerFill="#0883e2" styleClass="dashboard-button" stylesheets="@../assets/css/button.css" text="Course">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/images/course.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" offsetX="-1.0" offsetY="2.0" spread="0.1" />
+                     </effect>
+                  </JFXButton>
+                  <JFXButton fx:id="btnPayment" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="5.0" onAction="#btnPaymentOnAction" prefHeight="52.0" prefWidth="180.0" ripplerFill="#0883e2" styleClass="dashboard-button" stylesheets="@../assets/css/button.css" text="Payment">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/images/payment.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" offsetX="-1.0" offsetY="2.0" spread="0.1" />
+                     </effect>
+                  </JFXButton>
+                  <JFXButton fx:id="btnUser" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="5.0" onAction="#btnUserOnAction" prefHeight="52.0" prefWidth="180.0" ripplerFill="#0883e2" styleClass="dashboard-button" stylesheets="@../assets/css/button.css" text="User">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/images/coordinator.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" offsetX="-1.0" offsetY="2.0" spread="0.1" />
+                     </effect>
+                  </JFXButton>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" layoutY="586.0" prefHeight="50.0" prefWidth="200.0" spacing="25.0">
+               <children>
+                  <JFXButton fx:id="btnSettings" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" graphicTextGap="5.0" onAction="#btnSettingsOnAction" prefHeight="50.0" prefWidth="50.0" ripplerFill="#0883e2" styleClass="options-button" stylesheets="@../assets/css/button.css" text="Settings">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/images/settings.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" offsetX="-1.0" offsetY="2.0" spread="0.1" />
+                     </effect>
+                  </JFXButton>
+                  <JFXButton fx:id="btnLogOut" alignment="CENTER" buttonType="RAISED" contentDisplay="GRAPHIC_ONLY" graphicTextGap="5.0" onAction="#btnLogOutOnAction" prefHeight="50.0" prefWidth="50.0" ripplerFill="#0883e2" styleClass="options-button" stylesheets="@../assets/css/button.css" text="Log Out">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/images/logout.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" offsetX="-1.0" offsetY="2.0" spread="0.1" />
+                     </effect>
+                  </JFXButton>
+               </children></HBox>
+            <Group layoutX="14.0" layoutY="34.0">
+               <children>
+                  <Text fontSmoothingType="LCD" layoutX="91.0" layoutY="-2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Academy">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#e07709" fontSmoothingType="LCD" layoutY="-2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Culinary" wrappingWidth="154.029296875">
+                     <font>
+                        <Font name="SansSerif Bold" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Group>
+            <ImageView fitHeight="79.0" fitWidth="113.0" layoutX="42.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/images/Screenshot_2024-11-28_at_6.26.13_PM-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+         <effect>
+            <DropShadow blurType="GAUSSIAN">
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
+      <Pane fx:id="subPane" layoutX="200.0" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #ecf0f1;" />
+   </children>
+</AnchorPane>
