@@ -1,5 +1,6 @@
 package lk.ijse.culinaryacademy.bo.custom.impl;
 
+import javafx.scene.chart.LineChart;
 import lk.ijse.culinaryacademy.bo.custom.PaymentBO;
 import lk.ijse.culinaryacademy.dao.DAOFactory;
 import lk.ijse.culinaryacademy.dao.custom.PaymentDAO;
@@ -76,19 +77,29 @@ public class PaymentBOImpl implements PaymentBO {
 
     @Override
     public PaymentDTO searchByPaymentId(String paymentId) throws Exception {
-        Payment s = paymentDAO.searchById(paymentId);
+        Payment payment = paymentDAO.searchById(paymentId);
+
+        if (payment == null) {
+            return null;
+        }
+
         return new PaymentDTO(
-                s.getPaymentId(),
-                s.getStudentId(),
-                s.getCourseId(),
-                s.getPaymentDate(),
-                s.getFee(),
-                s.getStatus()
+                payment.getPaymentId(),
+                payment.getStudentId(),
+                payment.getCourseId(),
+                payment.getPaymentDate(),
+                payment.getFee(),
+                payment.getStatus()
         );
     }
 
     @Override
     public double getTotalPayments() throws Exception {
         return paymentDAO.getTotalPayments();
+    }
+
+    @Override
+    public void monthlyFeeChart(LineChart<String, Double> paymentLineChart) throws Exception {
+        paymentDAO.monthlyFeeChart(paymentLineChart);
     }
 }

@@ -192,7 +192,7 @@
             </DropShadow>
          </effect>
       </Pane>
-      <LineChart layoutX="34.0" layoutY="247.0" prefHeight="382.0" prefWidth="930.0">
+      <LineChart fx:id="paymentLineChart" layoutX="34.0" layoutY="247.0" prefHeight="382.0" prefWidth="930.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>

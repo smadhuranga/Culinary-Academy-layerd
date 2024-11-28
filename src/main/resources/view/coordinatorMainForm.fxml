@@ -81,7 +81,7 @@
          </effect>
       </Pane>
       <Pane fx:id="subPane" layoutX="200.0" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #ecf0f1;" />
-      <VBox layoutX="-15.0" layoutY="120.0" spacing="30.0">
+      <VBox layoutX="10.0" layoutY="120.0" spacing="30.0">
          <children>
             <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="5.0" onAction="#btnHomeOnAction" prefHeight="52.0" prefWidth="180.0" ripplerFill="#0883e2" styleClass="dashboard-button" stylesheets="@../assets/css/button.css" text="Dashboard">
                <font>

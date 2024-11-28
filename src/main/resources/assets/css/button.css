@@ -4,7 +4,7 @@
     -fx-border-width: 0;
     -fx-text-fill: #121212;
     -fx-padding: 10 0 10 35;
-    -fx-background-radius: 0 30 30 0;
+    -fx-background-radius: 30;
     -fx-alignment: baseline-left;
     -fx-font-size: 16;
     -fx-font-weight: bold;
@@ -17,7 +17,7 @@
 .dashboard-button:hover {
     -fx-background-color: linear-gradient(to right, #ff2cdf, #0014ff);
     -fx-text-fill: white;
-    -fx-translate-x: 15;
+    -fx-translate-x: 5;
 
     /* Add scale effect on hover */
     -fx-scale-x: 1.05;

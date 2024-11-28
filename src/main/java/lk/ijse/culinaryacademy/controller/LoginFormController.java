@@ -60,17 +60,17 @@ public class LoginFormController {
         try {
             User user = userBO.checkLoginCredential(username);
             if (user != null) {
-                // Verify the password using BCrypt
+
                 if (BCrypt.checkpw(password, user.getPassword())) {
                     UserBOImpl.userName = user.getUsername();
-                    UserBOImpl.role = user.getRole(); // get the username of the logged-in user
-                    String role = user.getRole(); // get the user's role for which dashboard to navigate
+                    UserBOImpl.role = user.getRole();
+                    String role = user.getRole();
 
-                    // Navigate based on the user's role
+
                     if ("Admin".equalsIgnoreCase(role)) {
-                        navigateToDashboard("/view/adminMainForm.fxml"); // navigate to the admin dashboard
+                        navigateToDashboard("/view/adminMainForm.fxml");
                     } else if ("Coordinator".equalsIgnoreCase(role)) {
-                        navigateToDashboard("/view/coordinatorMainForm.fxml"); // navigate to the coordinator dashboard
+                        navigateToDashboard("/view/coordinatorMainForm.fxml");
                     } else {
                         new Alert(Alert.AlertType.ERROR, "Unknown role: " + role).show();
                     }

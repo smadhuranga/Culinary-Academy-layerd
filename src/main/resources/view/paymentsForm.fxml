@@ -92,9 +92,9 @@
             </JFXButton>
          </children>
       </HBox>
-      <HBox layoutX="575.0" layoutY="264.0" prefHeight="41.0" prefWidth="385.0">
+      <HBox layoutX="575.0" layoutY="259.0" prefHeight="41.0" prefWidth="385.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5;">
          <children>
-            <JFXButton fx:id="btnSave" alignment="BASELINE_LEFT" graphicTextGap="5.0" onAction="#btnSaveOnAction" prefWidth="100.0" ripplerFill="#0882e1" style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5;" styleClass="crud-button" stylesheets="@../assets/css/button.css" text="Save">
+            <JFXButton fx:id="btnSave" alignment="BASELINE_LEFT" graphicTextGap="5.0" onAction="#btnSaveOnAction" prefWidth="100.0" ripplerFill="#0882e1" styleClass="crud-button" stylesheets="@../assets/css/button.css" text="Save">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>

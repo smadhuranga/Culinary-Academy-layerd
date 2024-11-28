@@ -71,7 +71,6 @@ public class UserFormController {
     // ---------------------------- Initialize Method ----------------------------
     @FXML
     void initialize() throws Exception {
-//        loadNextUserId();
         loadRoles();
         this.userList = getAllUsers();
         loadUserTable();
@@ -101,7 +100,7 @@ public class UserFormController {
             return;
         }
 
-        // Hash the password before creating the UserDTO
+
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
 
         UserDTO dto = new UserDTO(userId, name, email, role, hashedPassword);
@@ -113,7 +112,7 @@ public class UserFormController {
                 new Alert(Alert.AlertType.CONFIRMATION, "User  Added Successfully.").show();
                 clearField();
                 refreshTable();
-                // loadNextUser Id(); // Uncomment if you have a method to load the next user ID
+
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -134,7 +133,7 @@ public class UserFormController {
             return;
         }
 
-        // Hash the password using BCrypt
+
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
 
         UserDTO dto = new UserDTO(userId, name, email, role, hashedPassword);  // Pass the hashed password
@@ -153,7 +152,7 @@ public class UserFormController {
                 new Alert(Alert.AlertType.INFORMATION, "User Updated Successfully.").show();
                 clearField();
                 refreshTable();
-//            loadNextUserId();
+
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -171,7 +170,7 @@ public class UserFormController {
                 new Alert(Alert.AlertType.CONFIRMATION, "User Deleted Successfully.").show();
                 clearField();
                 refreshTable();
-//                loadNextUserId();
+
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -204,7 +203,7 @@ public class UserFormController {
 
         txtPassword.setDisable(false);
         txtConfirmPassword.setDisable(false);
-//        loadNextUserId();
+
     }
 
     private void refreshTable() {
@@ -237,26 +236,6 @@ public class UserFormController {
         }
     }
 
-//    private void loadNextUserId() throws Exception {
-//        try {
-//            String currentId = userBO.currentUserId();
-//            String nextId = nextId(currentId);
-//
-//            txtUsername.setText(nextId);
-//
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-//
-//    private String nextId(String currentId) {
-//        if (currentId != null) {
-//            String[] split = currentId.split("U");
-//            int id = Integer.parseInt(split[1]);
-//            return "U" + String.format("%03d", ++id);
-//        }
-//        return "U001";
-//    }
 
     private void loadUserTable() {
         ObservableList<UserTm> tmList = FXCollections.observableArrayList();

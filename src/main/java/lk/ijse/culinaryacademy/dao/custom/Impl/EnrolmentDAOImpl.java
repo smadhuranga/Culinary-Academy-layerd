@@ -71,7 +71,7 @@ public class EnrolmentDAOImpl implements EnrolmentDAO {
             Enrolment enrolment = session.get(Enrolment.class, enrolmentId);
 
             if (enrolment != null) {
-                // Initialize the lazy-loaded properties for Student and Course
+
                 Hibernate.initialize(enrolment.getStudent());
                 Hibernate.initialize(enrolment.getCourse());
             }
@@ -86,7 +86,7 @@ public class EnrolmentDAOImpl implements EnrolmentDAO {
     public List<Enrolment> getAll() throws Exception {
         List<Enrolment> enrolments = new ArrayList<>();
         try (Session session = SessionFactoryConfig.getInstance().getSession()) {
-            // Using a JOIN FETCH to load related entities
+
             enrolments = session.createQuery(
                     "SELECT e FROM Enrolment e " +
                             "JOIN FETCH e.student s " +

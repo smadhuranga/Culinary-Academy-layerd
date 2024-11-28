@@ -61,18 +61,7 @@ public class AdminMainFormController {
 
     }
 
-//    public String loadRole(String role) {
-//        if ("Admin".equals(role)) {
-//            btnPayment.setVisible(true);
-//            btnUser.setVisible(true);
-//            role = "Admin";
-//        } else if ("Coordinator".equals(role)) {
-//            btnPayment.setVisible(false);
-//            btnUser.setVisible(false);
-//            role = "Coordinator";
-//        }
-//        return role;
-//    }
+
 
     // ---------------------------- Button Actions ----------------------------
     @FXML

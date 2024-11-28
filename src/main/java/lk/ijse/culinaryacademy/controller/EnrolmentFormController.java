@@ -241,9 +241,9 @@ public class EnrolmentFormController {
             if (dto != null) {
                 txtEnrolmentId.setText(dto.getEnrolmentId());
                 cmbStudentId.setValue(dto.getStudentId());
-                txtStudentName.setText(dto.getStudentName());  // Updated field
+                txtStudentName.setText(dto.getStudentName());
                 cmbCourseId.setValue(dto.getCourseId());
-                txtCourseName.setText(dto.getCourseName());    // Updated field
+                txtCourseName.setText(dto.getCourseName());
                 txtEnrolledDate.setText(dto.getEnrolledDate().toString());
 
                 txtSearch.clear();

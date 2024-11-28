@@ -99,18 +99,18 @@ public class PaymentsFormController {
     // ------------------------------------ CRUD OPERATIONS ------------------------------------
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        // Get input data from the form
+
         String paymentId = txtPaymentId.getText();
         String studentId = cmbStudentId.getValue();
         String courseId = cmbCourseId.getValue();
         String feeText = txtFee.getText();
         String status = cmbStatus.getValue();
 
-        // Auto-generate the current date and time
+
         LocalDateTime paymentDate = LocalDateTime.now();
         double fee = 0;
 
-        // Validate and parse the fee input
+
         try {
             fee = Double.parseDouble(feeText);
         } catch (NumberFormatException e) {
@@ -118,23 +118,22 @@ public class PaymentsFormController {
             return;
         }
 
-        // Check if ComboBox values are selected
         if (courseId == null || status == null) {
             new Alert(Alert.AlertType.ERROR, "Please select both Course and Payment status.").show();
             return;
         }
 
-        // Create a PaymentDTO object
+
         PaymentDTO paymentDTO = new PaymentDTO(paymentId, studentId, courseId, paymentDate, fee, status);
 
-        // Validate fields
+
         String errorMessage = isValid();
         if (errorMessage != null) {
             new Alert(Alert.AlertType.ERROR, errorMessage).show();
             return;
         }
 
-        // Try to add the payment to the database
+
         try {
             boolean isAdded = paymentBO.addPayment(paymentDTO);
             if (isAdded) {
@@ -145,7 +144,7 @@ public class PaymentsFormController {
                 refreshTable();
             }
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Error while saving payment: " + e.getMessage()).show();
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 
@@ -246,29 +245,40 @@ public class PaymentsFormController {
     }
 
     @FXML
-    private void txtSearchOnAction(ActionEvent event) throws Exception {
+    private void txtSearchOnAction(ActionEvent event) {
         String paymentId = txtSearch.getText();
 
         try {
             PaymentDTO dto = paymentBO.searchByPaymentId(paymentId);
 
             if (dto != null) {
+
                 txtPaymentId.setText(dto.getPaymentId());
                 cmbStudentId.setValue(dto.getStudentId());
                 cmbCourseId.setValue(dto.getCourseId());
                 txtPaymentDate.setText(dto.getPaymentDate().toString());
                 txtFee.setText(String.valueOf(dto.getFee()));
                 cmbStatus.setValue(dto.getStatus());
-
                 txtSearch.clear();
             } else {
-                new Alert(Alert.AlertType.INFORMATION, "Payment not found.").show();
+                showAlert("Search Result", "Payment Not Found",
+                        "No Payment with ID \"" + paymentId + "\" was found.");
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (Exception e) {
+            showAlert("Error", "Database Error",
+                    "An error occurred while searching for the payment. " +
+                            "Please try again later.");
+            e.printStackTrace();
         }
     }
 
+    private void showAlert(String title, String header, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
     private void loadNextPaymentId() throws Exception {
         try {
             String currentId = paymentBO.currentPaymentId();
@@ -370,7 +380,7 @@ public class PaymentsFormController {
         if (cmbStatus.getValue() != null && cmbCourseId.getValue() != null) {
             setPaymentFee();
         } else {
-            new Alert(Alert.AlertType.ERROR, "Please select both Course and Payment status.").show();
+            txtFee.clear();
         }
     }
 
@@ -384,7 +394,7 @@ public class PaymentsFormController {
         String paymentStatus = cmbStatus.getValue();
         String courseId = cmbCourseId.getValue();
 
-        // Validate if courseId or paymentStatus is null or empty
+
         if (paymentStatus == null || paymentStatus.trim().isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Please select a payment status.").show();
             return;
@@ -397,13 +407,13 @@ public class PaymentsFormController {
         try {
             double fee = courseBO.searchByCourseId(courseId).getFee();
 
-            // If Full Payment, set fee and disable editing
+
             if (paymentStatus.equals("Full Payment")) {
                 txtFee.setText(String.valueOf(fee));
             } else {
                 String upfrontFeeText = txtFee.getText().trim();
 
-                // Check if upfront fee is entered
+
                 if (upfrontFeeText.isEmpty()) {
                     new Alert(Alert.AlertType.ERROR, EMPTY_UPFRONT_MESSAGE).show();
                     return;
@@ -412,13 +422,13 @@ public class PaymentsFormController {
                 try {
                     double upfrontFee = Double.parseDouble(upfrontFeeText);
 
-                    // Validate the upfront payment (must be at least 10% of total fee)
+
                     if (upfrontFee < fee / 10) {
                         new Alert(Alert.AlertType.ERROR, String.format(UPFRONT_TOO_LOW_MESSAGE, fee / 10)).show();
                     } else if (upfrontFee < 0) {
                         new Alert(Alert.AlertType.ERROR, INVALID_UPFRONT_MESSAGE).show();
                     } else if (upfrontFee <= fee) {
-                        // Only set fee if upfront is valid
+
                         txtFee.setText(String.valueOf(fee - upfrontFee));
                     } else {
                         new Alert(Alert.AlertType.ERROR, UPFRONT_TOO_HIGH_MESSAGE).show();

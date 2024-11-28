@@ -56,10 +56,10 @@ public class EnrolmentBOImpl implements EnrolmentBO {
 
         return new EnrolmentDTO(
                 e.getEnrolmentId(),
-                e.getStudent().getStudentId(),       // Assuming a getStudent() method
-                e.getStudent().getName(),           // Assuming a getName() method
-                e.getCourse().getCourseId(),        // Assuming a getCourse() method
-                e.getCourse().getCourseName(),            // Assuming a getName() method
+                e.getStudent().getStudentId(),
+                e.getStudent().getName(),
+                e.getCourse().getCourseId(),
+                e.getCourse().getCourseName(),
                 e.getEnrolledDate()
         );
     }
